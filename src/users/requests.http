@@ -1,0 +1,51 @@
+
+
+
+### WhoAmI
+GET http://localhost:3333/auth/whoami
+
+
+
+### SignOut a user
+POST http://localhost:3333/auth/signOut
+
+
+
+### Create a new User
+POST http://localhost:3333/auth/signUp
+Content-Type: application/json
+
+{
+    "email": "sun@gmail.coo",
+    "password": "12345"
+}
+
+### SignIn a user
+POST http://localhost:3333/auth/signIn
+Content-Type: application/json
+
+{
+    "email": "sun@gmail.copu",
+    "password": "12345"
+}
+
+### Get all users
+GET http://localhost:3333/auth/users
+
+
+### Get a User
+GET http://localhost:3333/auth/users/1
+
+
+### Update a user
+PUT http://localhost:3333/auth/users/1
+Content-Type: application/json
+
+{
+    "email": "sun@gmail.coml",
+    "password": "26156"
+}
+
+
+### Update a user
+DELETE http://localhost:3333/auth/users/434
