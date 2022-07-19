@@ -16,7 +16,7 @@ POST http://localhost:3333/auth/signUp
 Content-Type: application/json
 
 {
-    "email": "sun@gmail.coo",
+    "email": "sun@gmail.comu",
     "password": "12345"
 }
 
