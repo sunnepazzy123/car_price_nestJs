@@ -22,8 +22,3 @@ export const typeOrmModuleFactory = TypeOrmModule.forRootAsync({
         };
       },
     })
-
-export const jwtConfig: JwtModuleOptions = {
-  secret: 'junior',
-  signOptions: { expiresIn: '60s' },
-}

@@ -20,10 +20,13 @@ import { TokenDto } from './dtos/token.dto';
 import { UpdateUserDto } from './dtos/update_user.dto';
 import { UserDto } from './dtos/user.dto';
 import { AuthGuard } from './guards/auth.guard';
-import { JwtAuthGuard } from './jwt.auth.guard';
-import { LocalAuthGuard } from './local.auth';
+import { JwtAuthGuard } from './strategy/jwt.auth.guard';
+import { LocalAuthGuard } from './strategy/local.auth';
+import { GoogleAuthGuard } from './strategy/google.auth';
 import { User } from './users.entity';
 import { UsersService } from './users.service';
+
+
 
 @Controller('/auth')
 // @Serialize(UserDto)
@@ -63,7 +66,21 @@ export class UsersController {
     return token
   }
 
+  @UseGuards(GoogleAuthGuard)
+  @Get('/google/redirect')
+  async googleAuth(@Req() req) {
+    const token = await this.authService.generateToken(req.user)
+    return token;
+  }
+
+  
+  @UseGuards(GoogleAuthGuard)
+  @Get('/google')
+  async googleAuthRedirect(@Req() _) {
+  }
+
   @UseGuards(JwtAuthGuard)
+  @Serialize(UserDto)
   @Get('profile')
   getProfile(@Req() req) {
     return req.user;
