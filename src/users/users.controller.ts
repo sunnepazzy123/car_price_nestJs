@@ -29,7 +29,7 @@ import { UsersService } from './users.service';
 
 
 @Controller('/auth')
-// @Serialize(UserDto)
+@Serialize(UserDto)
 export class UsersController {
   constructor(
     private usersService: UsersService,
@@ -38,13 +38,11 @@ export class UsersController {
 
   @Get('/whoami')
   @UseGuards(AuthGuard)
-  @Serialize(UserDto)
   async whoAmI(@CurrentUser() user: User) {
     return user;
   }
 
   @Post('/signUp')
-  @Serialize(UserDto)
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signUp(body.email, body.password);
     session.userId = user.id;
@@ -52,7 +50,6 @@ export class UsersController {
   }
 
   @Post('/signIn')
-  @Serialize(UserDto)
   async signIn(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signIn(body.email, body.password);
     session.userId = user.id;
@@ -80,7 +77,6 @@ export class UsersController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Serialize(UserDto)
   @Get('profile')
   getProfile(@Req() req) {
     return req.user;
