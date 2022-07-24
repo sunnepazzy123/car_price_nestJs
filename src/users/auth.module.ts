@@ -29,13 +29,6 @@ import { ConfigService } from '@nestjs/config';
     JwtStrategyService,
     JwtService,
     GoogleStrategy,
-    // {
-    //     provide: JWT_PUBLIC_KEY,
-    //     useFactory: async (configService: ConfigService) => {
-    //         return configService.get('JWT_PUBLIC_KEY')
-    //     },
-    //     inject: [ConfigService],
-    //   },
 ],
 })
 export class AuthModule {}

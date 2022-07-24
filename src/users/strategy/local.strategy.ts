@@ -7,13 +7,7 @@ import { ExtractJwt } from 'passport-jwt';
 @Injectable()
 export class LocalStrategyService extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService ) {
-    super(
-        { usernameField: 'email',
-          jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-          ignoreExpiration: false,
-        // secretOrKey: jwtPublicKey,
-        }
-    );
+    super();
   }
 
   async validate(email: string, password: string): Promise<any> {
