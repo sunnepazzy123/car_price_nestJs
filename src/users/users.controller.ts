@@ -13,10 +13,8 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Serialize } from '../interceptors/serialize.interceptors';
-import { AuthService } from './auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { CreateUserDto } from './dtos/create_user.dto';
-import { TokenDto } from './dtos/token.dto';
 import { UpdateUserDto } from './dtos/update_user.dto';
 import { UserDto } from './dtos/user.dto';
 import { AuthGuard } from './guards/auth.guard';
@@ -25,6 +23,7 @@ import { LocalAuthGuard } from './strategy/local.auth';
 import { GoogleAuthGuard } from './strategy/google.auth';
 import { User } from './users.entity';
 import { UsersService } from './users.service';
+import { AuthService } from './auth/auth.service';
 
 
 

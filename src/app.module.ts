@@ -5,7 +5,7 @@ import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { ConfigModule, } from '@nestjs/config';
 import {typeOrmModuleFactory } from './config/db-config';
-import { AuthModule } from './users/auth.module';
+import { AuthModule } from './users/auth/auth.module';
 
 
 @Module({
