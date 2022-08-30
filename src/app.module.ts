@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
 import { ConfigModule, } from '@nestjs/config';
-import {typeOrmModuleFactory } from './config/db-config';
+import {typeOrmModule, } from './config/db-config';
 import { AuthModule } from './users/auth/auth.module';
 
 
@@ -14,8 +14,8 @@ import { AuthModule } from './users/auth/auth.module';
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    typeOrmModuleFactory,
-    // typeOrmModule,
+    // typeOrmModuleFactory,
+    typeOrmModule,
     UsersModule,
     ReportsModule,
     AuthModule,

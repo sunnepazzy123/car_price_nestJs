@@ -8,6 +8,6 @@ async function bootstrap() {
   app.enableCors();
   app.use(helmet())
   const setApp = setupApp(app);
-  await setApp.listen(3333);
+  await setApp.listen(process.env.PORT || 3333);
 }
 bootstrap();

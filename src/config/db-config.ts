@@ -1,5 +1,4 @@
 import { ConfigService } from "@nestjs/config";
-import { JwtModuleOptions } from "@nestjs/jwt";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Reports } from "src/reports/reports.entity";
 import { User } from "src/users/users.entity";
@@ -15,9 +14,13 @@ export const typeOrmModuleFactory = TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
         return {
-          type: 'sqlite',
-          database: config.get<string>('DB_NAME'),
-          synchronize: true,
+          type: 'postgres',
+          database: config.get<string>('DB_PROD_NAME'),
+          username: config.get('DB_PROD_USERNAME'),
+          password: config.get('DB_PROD_PASSWORD'),
+          port: 5432,
+          host: config.get('DB_PROD_HOST'),
+          // synchronize: true,
           entities: [User, Reports],
         };
       },
