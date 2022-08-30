@@ -10,13 +10,13 @@
     "npm": "8.11.0"
   },
   "scripts": {
-    "prebuild": "rimraf build",
+    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node build/main.js",
+    "start": "node dist/main.js",
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
     "start:debug": "cross-env NODE_ENV=development nest start --debug --watch",
-    "start:prod": "node build/main.js --omit=dev",
+    "start:prod": "node dist/main.js --omit=dev",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
