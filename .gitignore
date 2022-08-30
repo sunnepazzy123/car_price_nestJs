@@ -5,6 +5,8 @@
 /dist
 /node_modules
 
+db.sqlite
+
 # Logs
 logs
 *.log
