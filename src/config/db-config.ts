@@ -20,7 +20,7 @@ export const typeOrmModuleFactory = TypeOrmModule.forRootAsync({
           password: config.get('DB_PROD_PASSWORD'),
           port: 5432,
           host: config.get('DB_PROD_HOST'),
-          // synchronize: true,
+          synchronize: true,
           entities: [User, Reports],
         };
       },
