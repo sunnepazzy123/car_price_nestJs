@@ -9,5 +9,6 @@ async function bootstrap() {
   app.use(helmet())
   const setApp = setupApp(app);
   await setApp.listen(process.env.PORT || 3333);
+  console.log("listening on port:", process.env.PORT)
 }
 bootstrap();
