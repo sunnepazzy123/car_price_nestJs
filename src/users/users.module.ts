@@ -5,7 +5,7 @@ import { UsersController } from './users.controller';
 import { User } from './users.entity';
 import { UsersService } from './users.service';
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { AuthService } from './auth/auth.service';
 
