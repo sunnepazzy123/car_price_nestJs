@@ -1,6 +1,5 @@
 import {
   BadRequestException,
-  Inject,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -21,7 +20,7 @@ export class AuthService {
   }
 
   async signUp(email: string, password: string) {
-    const users = await this.userService.find(email);
+    const users = await this.userService.find({email});
     if (users.length) {
       throw new BadRequestException('User already exist');
     }
@@ -37,7 +36,7 @@ export class AuthService {
   }
 
   async signIn(email: string, password: string) {
-    const [user] = await this.userService.find(email);
+    const [user] = await this.userService.find({email});
     if (!user) {
       throw new NotFoundException('User not found');
     }
@@ -54,7 +53,7 @@ export class AuthService {
   }
 
   async validateUser(email: string, password: string): Promise<any> {
-    const [user] = await this.userService.find(email);
+    const [user] = await this.userService.find({email});
     if (!user) {
       throw new NotFoundException('User not found');
     }

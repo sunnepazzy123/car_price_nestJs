@@ -22,7 +22,7 @@ let AuthService = class AuthService {
         this.userService = userService;
     }
     async signUp(email, password) {
-        const users = await this.userService.find(email);
+        const users = await this.userService.find({ email });
         if (users.length) {
             throw new common_1.BadRequestException('User already exist');
         }
@@ -33,7 +33,7 @@ let AuthService = class AuthService {
         return user;
     }
     async signIn(email, password) {
-        const [user] = await this.userService.find(email);
+        const [user] = await this.userService.find({ email });
         if (!user) {
             throw new common_1.NotFoundException('User not found');
         }
@@ -45,7 +45,7 @@ let AuthService = class AuthService {
         return user;
     }
     async validateUser(email, password) {
-        const [user] = await this.userService.find(email);
+        const [user] = await this.userService.find({ email });
         if (!user) {
             throw new common_1.NotFoundException('User not found');
         }

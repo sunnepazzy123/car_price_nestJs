@@ -31,8 +31,10 @@ let UsersService = class UsersService {
         }
         return this.repo.findOne({ where: { id } });
     }
-    find(email) {
-        return this.repo.find({ where: { email } });
+    find(body) {
+        return this.repo.find({
+            where: body || {}
+        });
     }
     async update(id, attrs) {
         const user = await this.findOne(id);

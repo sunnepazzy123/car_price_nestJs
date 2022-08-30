@@ -60,8 +60,8 @@ let UsersController = class UsersController {
     async signOut(session) {
         session.userId = null;
     }
-    findUsers(email) {
-        const user = this.usersService.find(email);
+    findUsers() {
+        const user = this.usersService.find();
         return user;
     }
     async findUser(id) {
@@ -145,9 +145,8 @@ __decorate([
 ], UsersController.prototype, "signOut", null);
 __decorate([
     (0, common_1.Get)('/users'),
-    __param(0, (0, common_1.Query)('email')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], UsersController.prototype, "findUsers", null);
 __decorate([

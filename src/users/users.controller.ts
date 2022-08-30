@@ -87,8 +87,8 @@ export class UsersController {
   }
 
   @Get('/users')
-  findUsers(@Query('email') email: string) {
-    const user = this.usersService.find(email);
+  findUsers() {
+    const user = this.usersService.find();
     return user;
   }
   

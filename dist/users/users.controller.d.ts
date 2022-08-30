@@ -19,7 +19,7 @@ export declare class UsersController {
     googleAuthRedirect(_: any): Promise<void>;
     getProfile(req: any): any;
     signOut(session: any): Promise<void>;
-    findUsers(email: string): Promise<User[]>;
+    findUsers(): Promise<User[]>;
     findUser(id: string): Promise<User>;
     updateUser(id: number, body: UpdateUserDto): Promise<User>;
     deleteUser(id: number): Promise<User>;
