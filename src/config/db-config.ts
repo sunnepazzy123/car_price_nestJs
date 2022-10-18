@@ -1,7 +1,7 @@
 import { ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Reports } from "src/reports/reports.entity";
-import { User } from "src/users/users.entity";
+import { Reports } from "../reports/reports.entity";
+import { User } from "../users/users.entity";
 
 export const typeOrmModule = TypeOrmModule.forRoot({
       type: 'sqlite',

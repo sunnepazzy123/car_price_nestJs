@@ -11,8 +11,9 @@ async function bootstrap() {
     app.use((0, helmet_1.default)());
     const setApp = (0, setupApp_1.setupApp)(app);
     (0, swagger_1.swaggerDoc)(setApp);
-    await setApp.listen(process.env.PORT || 3333);
-    console.log("listening on port:", process.env.PORT);
+    const PORT = process.env.PORT || 9999;
+    await setApp.listen(PORT);
+    console.log("listening on port:", PORT);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
